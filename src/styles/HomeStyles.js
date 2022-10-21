@@ -13,7 +13,6 @@ export const Container = styled.div`
   
 `;
 
-
 export const Box = styled.div`
   display: flex;
   width: ${px2vw(320, 320)};
@@ -46,7 +45,7 @@ export const Box = styled.div`
   }
 `;
 
-export const CardTitle = styled.h3`
+export const StyledPokemonName = styled.h3`
   color: #333;
   font-size: 3rem;
   text-align: center;
@@ -59,6 +58,6 @@ export const CardTitle = styled.h3`
 
 
 export const ImageContainer = styled.div`
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 `

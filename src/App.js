@@ -1,15 +1,18 @@
 import Home from "./pages/Home";
-import Header from "./components/Header";
-import Global from "./styles/global";
+import Details from "./pages/Details";
+import Header from "./components/HeaderComponent";
+import Global from "./styles/GlobalStyles";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
+
   return (
     <>
       <Global />
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="details/:pokemonName" element={<Details />} />
       </Routes>
     </>
   );

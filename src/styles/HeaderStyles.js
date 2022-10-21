@@ -11,4 +11,9 @@ export const Title = styled.h1`
 margin-top: ${px2vw(30)};
 text-transform: uppercase;
 color: black;
+transition: color .2s;
+&:hover {
+    color: #333; 
+  }
+
 `
