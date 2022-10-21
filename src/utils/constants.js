@@ -1,0 +1,15 @@
+export const typeToColor = {
+  grass: "#68A890",
+  fire: "#D7705F",
+  water: "#70B8C7",
+  flying: "grey",
+  bug: "#f8d5a3",
+  electric: "#FCF7DE",
+  rock: "#d5d5d4",
+  fairy: "#fceaff",
+  poison: "#98d7a5",
+  dragon: "#97b3e6",
+  psychic: "#eaeda1",
+  fighting: "#E6E0D4",
+  normal: "#F5F5F5",
+};
