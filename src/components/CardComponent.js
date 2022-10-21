@@ -1,51 +1,39 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { StyledPokemonName } from "../styles/HomeStyles";
 import { ImageContainer } from "../styles/HomeStyles";
 import { Box } from "../styles/HomeStyles";
 import { typeToColor } from "../utils/constants";
-
-const CardComponent = ({ name, url }) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+import { useFetch } from "../hooks/useFetch";
 
 
+const CardComponent = ({ name: pokemonName }) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 
-  useEffect(() => {
-  const fetchImage = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-
-    fetchImage();
-  }, [url]);
+  const { loading, error, data } = useFetch(url);
 
   if (loading) return;
 
-  const pokemonType = data.types[0].type.name;
+  if (error) {
+    console.log(`Error while loading card ${pokemonName}. Error: ${error}`);
+    return;
+  }
 
+
+  const pokemonType = data.types[0].type.name;
 
   let bgColor = typeToColor[pokemonType];
   if (bgColor === undefined) bgColor = "white"; 
 
 
-
   return (
     <>
       <Box bgColor={bgColor}>
-        <Link to={`/Details/${name}`} style={{ textDecoration: "none" }}>
+        <Link to={`/Details/${pokemonName}`} style={{ textDecoration: "none" }}>
           <ImageContainer>
-            <img src={data.sprites.front_default} alt={name} width={150} />
+            <img src={data.sprites.front_default} alt={pokemonName} width={150} />
           </ImageContainer>
-          <StyledPokemonName> {name} </StyledPokemonName>
+          <StyledPokemonName> {pokemonName} </StyledPokemonName>
         </Link>
       </Box>
     </>
