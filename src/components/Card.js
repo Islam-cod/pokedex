@@ -9,21 +9,23 @@ const Card = ({ name, url }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchImage = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+
 
   useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setData(data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    };
+    
     fetchImage();
-  }, []);
+  }, [url]);
 
   if (loading) return;
 
