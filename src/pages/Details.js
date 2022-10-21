@@ -5,10 +5,12 @@ import { Wrapper } from "../styles/DetailsStyles";
 import { typeToColor } from "../utils/constants";
 import ChartComponent from "../components/ChartComponent";
 import { TypeWrapper, ChartWrapper, StatValue, StatType} from "../styles/DetailsStyles";
+import ErrorComponent from "../components/ErrorComponent";
 
 
 function Details() {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
   const [pokemonData, setPokemonData] = useState(null);
 
   let params = useParams();
@@ -20,9 +22,11 @@ function Details() {
         const response = await fetch(url);
         const data = await response.json();
         setPokemonData(data);
+        setError(null);
         setLoading(false);
       } catch (error) {
         console.log(error);
+        setError("Sorry, Something went wrong while getting card details!");
         setLoading(false);
       }
     };
@@ -31,6 +35,8 @@ function Details() {
   }, [url]);
 
   if (loading) return <h3> Loading .... </h3>;
+
+  if (error) return <ErrorComponent error={error} />
 
   const pokemnName = pokemonData.name;
   const pokemonImage = pokemonData.sprites.front_default;

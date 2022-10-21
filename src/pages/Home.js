@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Container } from "../styles/HomeStyles";
-import Card from "../components/CardComponent";
+import CardComponent from "../components/CardComponent";
 import { cardCount } from "../utils/settings";
+import ErrorComponent from "../components/ErrorComponent";
 
 function Home() {
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
   const [cards, setCards] = useState([]);
   const url = `https://pokeapi.co/api/v2/pokemon?limit=${cardCount}`;
 
@@ -15,25 +17,29 @@ function Home() {
       try {
         const response = await fetch(url);
         const cardsFromServer = await response.json();
-        setLoading(false);
         setCards(cardsFromServer.results);
+        setError(null);
+        setLoading(false);
       } catch (error) {
         setLoading(false);
         console.log(error);
+        setError("Sorry, Something went wrong while getting pokemon cards!");
+        setLoading(false);
       }
     };
 
     fetchCards();
   }, [url]);
 
-  if (loading) {
-    return <h3> Loading .... </h3>;
-  }
+  if (loading) return <h3> Loading .... </h3>;
+
+  if (error) return <ErrorComponent error={error} />
+
 
   return (
     <Container>
       {cards.map((pokemon) => (
-        <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+        <CardComponent key={pokemon.name} name={pokemon.name} url={pokemon.url} />
       ))}
     </Container>
   );

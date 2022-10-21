@@ -6,7 +6,7 @@ import { ImageContainer } from "../styles/HomeStyles";
 import { Box } from "../styles/HomeStyles";
 import { typeToColor } from "../utils/constants";
 
-const Card = ({ name, url }) => {
+const CardComponent = ({ name, url }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -52,4 +52,4 @@ const Card = ({ name, url }) => {
   );
 };
 
-export default Card;
+export default CardComponent;
