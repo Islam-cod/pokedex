@@ -9,7 +9,20 @@ export const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   height: 100vh;
+  position: relative;
 `;
+
+export const DetailsContainer = styled.div`
+border: 3px solid #333;
+border-radius: 1em;
+background-color: rgba(255, 255, 255, 0.1);
+box-shadow: 0 0 8px 8px rgba(51,51,51,0.2); 
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+max-width: 75%;
+`
 
 export const TypeWrapper = styled.div`
   display: flex;
@@ -19,8 +32,8 @@ export const TypeWrapper = styled.div`
 
 export const ChartWrapper = styled.div`
   justify-content: center;
-  margin-top: ${px2vw(32)};
-  padding: 0 ${px2vw(300)};
+  padding: 0 ${px2vw(100)};
+  margin-bottom: 10px;
 `;
 
 export const StatType = styled.span`
@@ -28,9 +41,9 @@ export const StatType = styled.span`
   border-color: #ffc107;
   color: #212529;
   text-transform: uppercase;
-  padding: 4px 8px;
+  padding: 4px 25px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 20px;
 `;
 
 export const StatValue = styled.h4`

@@ -1,7 +1,6 @@
 import { Chart as ChartJS, registerables } from "chart.js";
 import React from "react";
 import { Bar } from "react-chartjs-2";
-ChartJS.register(...registerables);
 
 function ChartComponent({
   data,
@@ -11,6 +10,9 @@ function ChartComponent({
   borderColor,
   displayLegend,
 }) {
+  ChartJS.register(...registerables);
+  ChartJS.defaults.color = "black";
+
   const chartData = {
     labels: labels,
     datasets: [
@@ -29,7 +31,7 @@ function ChartComponent({
   const chartOptions = {
     indexAxis: "y", //y-axis=labels, x-axis=data
     responsive: true, // fixed width, but not responsive
-    maintainAspectRatio: false, 
+    maintainAspectRatio: false,
     //extra options
     plugins: {
       legend: {

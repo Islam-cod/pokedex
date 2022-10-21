@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Wrapper } from "../styles/DetailsStyles";
 import { typeToColor } from "../utils/constants";
 import ChartComponent from "../components/ChartComponent";
-import { TypeWrapper, ChartWrapper, StatValue, StatType} from "../styles/DetailsStyles";
+import { DetailsContainer, TypeWrapper, ChartWrapper, StatValue, StatType} from "../styles/DetailsStyles";
 import ErrorComponent from "../components/ErrorComponent";
 
 
@@ -51,19 +51,11 @@ function Details() {
   const labels = ["HP", "ATK", "DEF", "SPD", "EXP"];
   const dataLabel = "Stat";
   const backgroundColor = [
-    "rgba(255, 99, 132, 0.2)",
-    "rgba(54, 162, 235, 0.2)",
-    "rgba(255, 206, 86, 0.2)",
-    "rgba(75, 192, 192, 0.2)",
-    "rgba(153, 102, 255, 0.2)",
-  ];
-
-  const borderColor = [
-    "rgba(255, 99, 132, 1)",
-    "rgba(54, 162, 235, 1)",
-    "rgba(255, 206, 86, 1)",
-    "rgba(75, 192, 192, 1)",
-    "rgba(153, 102, 255, 1)",
+    "rgba(221, 2, 2, 1)",
+    "rgba(255, 159, 46, 1)",
+    "rgba(46, 174, 255, 1)",
+    "rgba(135, 135, 135, 1)",
+    "rgba(0, 163, 18, 1)",
   ];
 
   const chartData = [pokemonHP, pokemonAtk, pokemonDef, pokemonSpd, pokemonExp];
@@ -74,6 +66,7 @@ function Details() {
 
   return (
     <Wrapper bgColor={bgColor}>
+      <DetailsContainer>
       <img src={pokemonImage} alt={pokemnName} width={250} />
       <StatValue>#{pokemonData.id}</StatValue>
       <h1>{pokemnName}</h1>
@@ -96,16 +89,18 @@ function Details() {
       </TypeWrapper>
 
       <h2>Base Stats</h2>
+
       <ChartWrapper>
         <ChartComponent
           data={chartData}
           labels={labels}
           dataLabel={dataLabel}
           backgroundColor={backgroundColor}
-          borderColor={borderColor}
+          borderColor={backgroundColor}
           displayLegend={false}
         />
       </ChartWrapper>
+      </DetailsContainer>
     </Wrapper>
   );
 }
