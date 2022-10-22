@@ -1,6 +1,9 @@
 # Pokedex
 A responsive web app that displays the first 151 Pokémon. 
 
+
+![screen-shot](https://i.ibb.co/7W3xmbY/pokemon-screenshot.png)
+
 # Features
 - Displaying the first 151 Pokémon in responsive layout across various screen sizes
 - Every Pokémon is displayed with its image and its name
