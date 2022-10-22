@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ChartComponent from "../components/ChartComponent";
 
 jest.mock("react-chartjs-2", () => ({
@@ -31,5 +31,5 @@ test("renders chart on screen", async () => {
 
   expect(container).toBeTruthy();
   // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-  expect(container.getElementsByClassName('chart').length).toBe(1);
+  expect(container.getElementsByClassName("chart").length).toBe(1);
 });

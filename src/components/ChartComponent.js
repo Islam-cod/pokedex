@@ -1,5 +1,4 @@
-//import { Chart as ChartJS, registerables } from "chart.js";
-import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
 import React from "react";
 import { Bar } from "react-chartjs-2";
 
@@ -12,7 +11,7 @@ function ChartComponent({
   displayLegend,
 }) {
   Chart.defaults.color = "black";
-  
+
   const chartData = {
     labels: labels,
     datasets: [
@@ -23,16 +22,14 @@ function ChartComponent({
         borderColor: borderColor,
         borderWidth: 1,
         hoverBorderWidth: 1.5,
-        //hoverBorderColor: "#FFD700"
       },
     ],
   };
 
   const chartOptions = {
-    indexAxis: "y", //y-axis=labels, x-axis=data
-    responsive: true, // fixed width, but not responsive
+    indexAxis: "y",
+    responsive: true,
     maintainAspectRatio: false,
-    //extra options
     plugins: {
       legend: {
         display: displayLegend,

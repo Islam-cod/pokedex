@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import px2vw from "../utils/px2vw";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -7,10 +8,9 @@ export const Container = styled.div`
   justify-content: center;
   margin: ${px2vw(32)};
   max-width: 100%;
-  background-color: #2B292C;
+  background-color: #2b292c;
   margin: 0;
   padding: 0;
-  
 `;
 
 export const Box = styled.div`
@@ -20,16 +20,16 @@ export const Box = styled.div`
   flex-direction: column;
   padding: ${px2vw(20)};
   margin: ${px2vw(20)};
-  background-color: ${props => props.bgColor};
+  background-color: ${(props) => props.bgColor};
   height: 100%;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 1em;
-  transition: box-shadow .3s;
-  border: 1px solid #EC9700;
+  transition: box-shadow 0.3s;
+  border: 1px solid #ec9700;
   &:hover {
-    box-shadow: 0 0 8px 8px rgba(236, 151, 0,.5); 
+    box-shadow: 0 0 8px 8px rgba(236, 151, 0, 0.5);
   }
 
   @media (min-width: 768px) {
@@ -55,9 +55,11 @@ export const StyledPokemonName = styled.h3`
   }
 `;
 
-
-
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
+
+export const ClearedLink = styled(Link)`
+  text-decoration: none;
+`;

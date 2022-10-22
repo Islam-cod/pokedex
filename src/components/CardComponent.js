@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { StyledPokemonName } from "../styles/HomeStyles";
-import { ImageContainer } from "../styles/HomeStyles";
+import { ImageContainer, ClearedLink } from "../styles/HomeStyles";
 import { Box } from "../styles/HomeStyles";
 import { typeToColor } from "../utils/constants";
 import { useFetch } from "../hooks/useFetch";
@@ -29,12 +28,12 @@ const CardComponent = ({ name: pokemonName }) => {
   return (
     <>
       <Box bgColor={bgColor}>
-        <Link to={`/Details/${pokemonName}`} style={{ textDecoration: "none" }}>
+        <ClearedLink to={`/Details/${pokemonName}`}>
           <ImageContainer>
             <img src={data.sprites.front_default} alt={pokemonName} width={150} />
           </ImageContainer>
           <StyledPokemonName> {pokemonName} </StyledPokemonName>
-        </Link>
+        </ClearedLink>
       </Box>
     </>
   );

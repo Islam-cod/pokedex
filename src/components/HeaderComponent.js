@@ -1,15 +1,14 @@
-import React from 'react';
-import { HeaderContainer, Title } from '../styles/HeaderStyles';
-import { Link } from "react-router-dom";
+import React from "react";
+import { HeaderContainer, Title } from "../styles/HeaderStyles";
+import { ClearedLink } from "../styles/HomeStyles";
 
 const HeaderComponent = () => {
   return (
     <HeaderContainer>
-      <Link to="/" style={{ textDecoration: "none" }}>
-      <Title>Personal Pokedex!</Title>
-      </Link>
+      <ClearedLink to="/">
+        <Title>Personal Pokedex!</Title>
+      </ClearedLink>
     </HeaderContainer>
-
   );
 };
 

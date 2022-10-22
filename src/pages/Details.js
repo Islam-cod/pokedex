@@ -13,8 +13,6 @@ import {
 import ErrorComponent from "../components/ErrorComponent";
 import { useFetch } from "../hooks/useFetch";
 
-
-
 function Details() {
   let params = useParams();
   const url = `https://pokeapi.co/api/v2/pokemon/${params.pokemonName}`;
@@ -24,7 +22,8 @@ function Details() {
   if (loading) return <h3> Loading .... </h3>;
 
   if (error) {
-    const errorMessage =  "Sorry, Something went wrong while getting card details!";
+    const errorMessage =
+      "Sorry, Something went wrong while getting card details!";
     return <ErrorComponent error={errorMessage} />;
   }
 
