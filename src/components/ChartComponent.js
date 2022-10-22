@@ -1,4 +1,5 @@
-import { Chart as ChartJS, registerables } from "chart.js";
+//import { Chart as ChartJS, registerables } from "chart.js";
+import Chart from 'chart.js/auto';
 import React from "react";
 import { Bar } from "react-chartjs-2";
 
@@ -10,9 +11,8 @@ function ChartComponent({
   borderColor,
   displayLegend,
 }) {
-  ChartJS.register(...registerables);
-  ChartJS.defaults.color = "black";
-
+  Chart.defaults.color = "black";
+  
   const chartData = {
     labels: labels,
     datasets: [
